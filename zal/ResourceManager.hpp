@@ -16,33 +16,33 @@ class ResourceManager
       delete d;
     }
 
-    ResourceManager(const ResourceManager& d)
+    ResourceManager(const ResourceManager& a)
     // konstruktor kopiujacy
     {
         d = new Resource;
-        *Resource = *d.Resource;
+        *d = *a.d;
     }
 
-    ResourceManager(ResourceManager&& d) // move constructor
+    ResourceManager(ResourceManager&& c) // move constructor
     {
-        Resource   = d.Resource;
-        d.Resource = nullptr;
+        d   = c.d;
+        d.d = nullptr;
     }
 
-    ResourceManager& operator=(ResourceManager&& other) // move operator
+    ResourceManager& operator=(ResourceManager&& c) // move operator
     {
-        if (&other == this)
+        if (&c == this)
             return *this;
-        delete Resource;
-        Resource       = other.Resource;
-        other.Resource = nullptr;
+        delete d;
+        d       = c.d;
+        c.d = nullptr;
         return *this;
     }
 
-    ResourceManager& operator=(const ResourceManager& d) // operator przypisania
+    ResourceManager& operator=(const ResourceManager& b) // operator przypisania
     {
-        if (this != &d)
-            *Resource = *d.Resource;
+        if (this != &b)
+            *d = *b.d;
         return *this;
     }
 
