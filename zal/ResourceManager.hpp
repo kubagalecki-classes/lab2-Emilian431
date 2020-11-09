@@ -26,7 +26,7 @@ class ResourceManager
     ResourceManager(ResourceManager&& c) // move constructor
     {
         d   = c.d;
-        d.d = nullptr;
+        c.d = nullptr;
     }
 
     ResourceManager& operator=(ResourceManager&& c) // move operator
@@ -46,7 +46,7 @@ class ResourceManager
         return *this;
     }
 
-     double get()
+     double get() //double get
     {
         return d->get();
     }
