@@ -20,7 +20,7 @@ class ResourceManager
     // konstruktor kopiujacy
     {
         d = new Resource;
-        Resource = d.Resource;
+        *Resource = *d.Resource;
     }
 
     ResourceManager(ResourceManager&& d) // move constructor
