@@ -48,7 +48,7 @@ class ResourceManager
 
      double get()
     {
-        return d;
+        return d->get();
     }
 
     private:
